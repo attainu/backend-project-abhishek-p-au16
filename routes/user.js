@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   let products = 
     [{
     name:"Dabur Honey",
@@ -30,6 +31,10 @@ router.get('/', function(req, res, next) {
 ]
 
   
+
+
+ 
+
   res.render('index',{products,admin:false});
 });
 
