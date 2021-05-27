@@ -127,4 +127,9 @@ dist/
 tmp/
 temp/
 
+
 # End of https://www.toptal.com/developers/gitignore/api/node
+i/views/error.jade
+i/views/index.jade
+i/views/layout.jade
+
