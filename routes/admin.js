@@ -33,10 +33,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/add-product",(req,res)=>{
-  res.render('admin/add-products',{admin:true})
+  res.render('admin/add-product',{admin:true})
 })
 
-router.post('admin/add-product',(req,res)=>{
+router.post('/add-product',(req,res)=>{
   console.log(req.body)
   console.log(req.files.Image)
 

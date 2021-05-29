@@ -13,7 +13,7 @@ const fileUpload = require("express-fileupload")
 let hbs = require('express-handlebars')
 var app = express();
 
-//var db =require ('./setting/connection')
+var db =require ('./setting/connection')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,10 +29,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
 
-// db.connect(()=>{
-//   if(err)console.log("connection failed")
-//   else console.log("database connected")
-// })
+db.connect((err)=>{
+   if(err)console.log("connection failed")
+  else console.log("database connected")
+ })
 app.use('/', userRouter);
 app.use('/admin',adminRouter);
 
