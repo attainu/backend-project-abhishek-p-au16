@@ -1,15 +1,19 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const hbs =require('express-handlebars')
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-var indexRouter = require('./routes/user');
-var adminRouter = require('./routes/admin');
-const { extname } = require('path');
+const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
+const { handlebars } = require('hbs');
+const fileUpload = require("express-fileupload")
 
+
+let hbs = require('express-handlebars')
 var app = express();
+
+//var db =require ('./setting/connection')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,10 +23,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/admin', adminRouter);
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload())
+
+// db.connect(()=>{
+//   if(err)console.log("connection failed")
+//   else console.log("database connected")
+// })
+app.use('/', userRouter);
+app.use('/admin',adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
