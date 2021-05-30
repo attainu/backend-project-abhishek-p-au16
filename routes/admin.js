@@ -4,7 +4,7 @@ let productHelper = require('../helpers/product-helper');
 /* GET admin listing. */
 router.get('/', function(req, res, next) {
  productHelper.getAllProducts().then((products)=>{
-  res.render('admin/view-products',{products,admin:true});
+  res.render('admin/view-product',{products,admin:true});
  })
   
 });
