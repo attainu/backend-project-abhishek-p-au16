@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+let productHelper = require('../helpers/product-helper');
 /* GET admin listing. */
 router.get('/', function(req, res, next) {
   let products=[{
@@ -39,6 +39,18 @@ router.get("/add-product",(req,res)=>{
 router.post('/add-product',(req,res)=>{
   console.log(req.body)
   console.log(req.files.Image)
+  productHelper.addproduct(req.body,(id)=>{
+    let image = req.files.Image
+    console.log(id)
+    image.mv('./public/product-image/'+id+'.jpg',(err,done)=>{
+      if(!err){
+        res.render("admin/add-products")
+      }else{
+        console.log(err)
+      }
+    })
+  })
+
 
 })
 
