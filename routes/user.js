@@ -20,4 +20,11 @@ router.post('/signup',(req,res)=>{
   })
   
 })
+router.get('/login',(req,res)=>{
+     res.render("user/login")
+})
+router.post('/login',(req,res)=>{
+  console.log(req.body)
+  userHelper.doLogin(req.body)
+})
 module.exports = router;
