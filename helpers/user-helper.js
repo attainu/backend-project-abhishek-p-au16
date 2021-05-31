@@ -1,5 +1,5 @@
 let db = require('../setting/connection')
-let collection =require('../setting/collections');
+let collection =require('../setting/collection');
 const bcrypt = require('bcrypt')
 module.exports={
     doSignup:(userData)=>{
