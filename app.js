@@ -8,7 +8,7 @@ const userRouter = require('./routes/user');
 const adminRouter = require('./routes/admin');
 const { handlebars } = require('hbs');
 const fileUpload = require("express-fileupload")
-
+const session = require("express-session")
 
 let hbs = require('express-handlebars')
 var app = express();
@@ -28,6 +28,8 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
+
+app.use(session({secret:"key",cookie:{maxAge:60000}}))
 
 db.connect((err)=>{
    if(err)console.log("connection failed")

@@ -4,8 +4,10 @@ let productHelper = require('../helpers/product-helper');
 let userHelper = require('../helpers/user-helper')
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  let user=req.session.user
+  console.log(user)
   productHelper.getAllProducts().then((products)=>{
-     res.render('user/view-product',{products,admin:false});
+     res.render('user/view-product',{products,user,admin:false});
   })
 
  
@@ -27,6 +29,8 @@ router.post('/login',(req,res)=>{
   console.log(req.body)
   userHelper.doLogin(req.body).then((response)=>{
     if(response.status){
+      req.session.loggedIn=true
+      req.session.user=response.user
       res.redirect('/')
     }else{
       res.redirect("/login")
