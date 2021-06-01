@@ -25,6 +25,13 @@ router.get('/login',(req,res)=>{
 })
 router.post('/login',(req,res)=>{
   console.log(req.body)
-  userHelper.doLogin(req.body)
+  userHelper.doLogin(req.body).then((response)=>{
+    if(response.status){
+      res.redirect('/')
+    }else{
+      res.redirect("/login")
+    }
+  })
+  
 })
 module.exports = router;
