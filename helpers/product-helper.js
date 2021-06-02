@@ -32,7 +32,7 @@ module.exports={
     },
     updateProduct:(proId,proDetails)=>{
         return new Promise((resolve,reject)=>{
-            db.get().collection(collection.product).updateOne({_id:objectId(proId)},{
+            db.get().collection(collection.productCollection).updateOne({_id:objectId(proId)},{
                 $set:{
                     Name:proDetails.Name,
                     description:proDetails.description,
