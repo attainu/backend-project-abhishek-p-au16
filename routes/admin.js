@@ -29,6 +29,26 @@ router.post('/add-product',(req,res)=>{
   })
 
 
+}),
+router.get("/delete/:id",(req,res)=>{
+  let proId = req.params.id
+  console.log(proId)
+  productHelper.deleteProduct(proId).then((respponse)=>{
+    res.redirect('/admin')
+  })
+
+})
+
+router.get("/edit-product/:id",async(req,res)=>{
+  let product =await productHelper.getProductDetails(req.params.id)
+  console.log(product)
+  res.render("admin/edit-product",{product})
+})
+router.post('/edit-products/:id',(req,res)=>{
+  console.log(req.body)
+  productHelper.updateProduct(req.param.id,req.body).then(()=>{
+    res.redirect("/admin")
+  })
 })
 
 module.exports = router;
