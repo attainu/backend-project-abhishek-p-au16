@@ -20,8 +20,8 @@
 
 
                            <label for="">Image</label><br>
-                           <img src="/product-image/{{product._id}}.jpg" style="width:100px; height:100px;">
-                    <input type="file" name="Image" class="form-control">
+                           <img src="/product-image/{{product._id}}.jpg" style="width:100px; height:100px;" id="imgView">
+                    <input type="file" name="Image" class="form-control" onchange="viewImage(event)">
                     
                      <button type="submit" class="btn btn-success mt-4">submit</button>
                 </form>
@@ -30,3 +30,4 @@
             </div>
         </div>
         </section>
+       
