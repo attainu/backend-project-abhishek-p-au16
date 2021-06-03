@@ -38,4 +38,10 @@ router.post('/login',(req,res)=>{
   })
   
 })
+
+router.get('/add-to-cart/:id',(req,res)=>{
+  userHelper.addToCart(req.params.id,req.session.user._id).then(()=>{
+    res.redirect('/')
+  })
+})
 module.exports = router;

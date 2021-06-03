@@ -1,4 +1,5 @@
 module.exports={
     productCollection:"product",
-    userCollection:"user"
+    userCollection:"user",
+    cartCollection:"cart"
 }
