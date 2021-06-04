@@ -48,6 +48,7 @@ router.get('/add-to-cart/:id',(req,res)=>{
 router.get("/cart",async(req,res)=>{
   let products = await userHelper.getCartProducts(req.session.user._id)
   console.log(products)
-  res.render("user/cart")
+  res.render("user/cart",{products})
 })
+
 module.exports = router;
