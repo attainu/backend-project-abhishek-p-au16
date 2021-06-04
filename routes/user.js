@@ -44,4 +44,10 @@ router.get('/add-to-cart/:id',(req,res)=>{
     res.redirect('/')
   })
 })
+
+router.get("/cart",async(req,res)=>{
+  let products = await userHelper.getCartProducts(req.session.user._id)
+  console.log(products)
+  res.render("user/cart")
+})
 module.exports = router;
