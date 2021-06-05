@@ -51,4 +51,7 @@ router.get("/cart",async(req,res)=>{
   res.render("user/cart",{products})
 })
 
+router.post('/place-order',(req,res)=>{
+  console.log(req.body)
+})
 module.exports = router;
