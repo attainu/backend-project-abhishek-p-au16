@@ -39,5 +39,12 @@ module.exports={
             }
         })
 
+    },
+    getAllorders:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let orders= await db.get().collection(collection.getOrders).find().toArray()
+            resolve(orders)
+        })
     }
+
 }

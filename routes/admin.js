@@ -93,21 +93,21 @@ router.post('/edit-product/:id',(req,res)=>{
 
 //router for admin signup
 
-//router.get('/admin-signup',(req,res)=>{
-//  res.render('admin/admin-signup')
-//})
+router.get('/admin-signup',(req,res)=>{
+ res.render('admin/admin-signup')
+})
 
-// router.post('/admin-signup',(req,res)=>{
-//   console.log(req.body)
-//   adminHelper.doSignup(req.body).then((responce)=>{
-//     console.log(responce)
-//     req.session.admin = response
-//     req.session.admin.loggedIn=true
-//     res.redirect('/')
-//   })
+router.post('/admin-signup',(req,res)=>{
+  console.log(req.body)
+  adminHelper.doSignup(req.body).then((responce)=>{
+    console.log(responce)
+    req.session.admin = response
+    req.session.admin.loggedIn=true
+    res.redirect('/')
+  })
   
   
-// })
+})
 
 
 
@@ -137,7 +137,13 @@ router.get('/admin-login',(req,res)=>{
 //router to orders
 
  router.get('/orders',verifyLogin,(req,res)=>{
-   res.render('admin/orders',{admin:true})
-
+  //adminHelper.getAllorders().then((Orders)=>{
+  res.render('admin/orders');
  })
+
+
+
+ //})
+
+ 
 module.exports = router;

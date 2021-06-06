@@ -91,15 +91,15 @@ router.get('/place-order',verifyLogin,(req,res)=>{
 //router for place order
 
 
-// router.post('/place-order',async(req,res)=>{
-//   console.log(req.body)
-//   let cartProducts = await userHelper.getCartProducts(req.session.user._id)
-//   let address = req.body
+router.post('/place-order',async(req,res)=>{
+  console.log(req.body)
+  let cartProducts = await userHelper.getCartProducts(req.session.user._id)
+  let address = req.body
 
-//   userHelper.getOrders(cartProducts,address).then((responce)=>{
-//     console.log(responce)
-//     res.redirect('/')
-//   })
-//   console.log(cartProducts,address)
-// })
+  userHelper.getOrders(cartProducts,address).then((responce)=>{
+    console.log(responce)
+    res.redirect('/')
+  })
+  console.log(cartProducts,address)
+})
 module.exports = router;

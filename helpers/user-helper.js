@@ -49,7 +49,7 @@ module.exports={
                         $push:{products:objectId(proId)}
                 
                 }
-                ).then((respnse)=>{
+                ).then((response)=>{
                     resolve()
                 })
                 
@@ -93,9 +93,13 @@ module.exports={
             resolve(cartItems[0].cartItems)
         })
     },
-   getOrders:(cartProducts,address)=>{
-       return new Promise((req,res)=>{
-           db.get().collection(collection.orderCollections).insertOne(cartProducts,address).then((data)=>{
+   getOrders:(cartProducts,userAddress)=>{
+       return new Promise((resolve,rejecct)=>{
+           let data= {
+               address:userAddress,
+               product:cartProducts
+           } 
+           db.get().collection(collection.orderCollection).insertOne(data).then((data)=>{
                resolve(data.ops[0])
            })
        })
