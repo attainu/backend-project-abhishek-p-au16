@@ -4,8 +4,8 @@ const state ={
 }
 
 module.exports.connect = function(done){
-    const url='mongodb://localhost:27017'
-    const dbname = "grocerystore"
+    const url='mongodb+srv://abhishek:attainu2021@cluster0.zmld7.mongodb.net/Grocerystore?retryWrites=true&w=majority'
+    const dbname = "Grocerystore"
 
     mongoClient.connect(url,{useUnifiedTopology:true},(err,data)=>{
         if(err) return err
