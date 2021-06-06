@@ -92,5 +92,12 @@ module.exports={
             ]).toArray()
             resolve(cartItems[0].cartItems)
         })
-    }
+    },
+   getOrders:(cartProducts,address)=>{
+       return new Promise((req,res)=>{
+           db.get().collection(collection.orderCollections).insertOne(cartProducts,address).then((data)=>{
+               resolve(data.ops[0])
+           })
+       })
+   }
 }         
