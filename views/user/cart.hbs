@@ -1,0 +1,28 @@
+<section>
+    <div class="container">
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td><img style="width:50px;height:55px;" src="/product-image/{{this._id}}.jpg" ></td>
+                    <td>{{this.Name}}</td>
+                    
+                    
+                    <td>Rs:{{this.price}}.00/.</td>
+                    <td>
+                        <a href="" class="btn btn-danger">Remove</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <a href="/place-order" class="btn btn-success float-right mr-5" >Order Now</a>
+    </div>
+</section>
