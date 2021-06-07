@@ -98,7 +98,7 @@ router.post('/place-order',async(req,res)=>{
 
   userHelper.getOrders(cartProducts,address).then((responce)=>{
     console.log(responce)
-    res.redirect('/')
+    res.redirect('/place-order')
   })
   console.log(cartProducts,address)
 })
